@@ -1,7 +1,15 @@
 api_key: "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"
 num_questions: 5
 temperature: 0
-top_p: 0.7  #0.3 to 0.9 is recommended
-max_token: 500
+top_p: 0.7  
+max_token: 700 
 frequency_penalty: 0.6
 presence_penalty: 0.8
+
+# api_key: Your OpenAI Key
+# num_questions: How many questions you want to generate per question
+# temperature: The creativity of Generator, the range is 0 <= temperature <= 2
+# top_p: the randomness of the output, recommend 0.3-0.9 
+# max_token: the max length of a question
+# frequency_penalty: 0-1
+# presence_penalty: 0-1
