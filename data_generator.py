@@ -43,7 +43,7 @@ def generate_example(num_questions, answer, prev_examples, temperature=0, top_p=
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-16k",
         messages=messages,
-        temperature=temperature
+        temperature=temperature,
         top_p = top_p,
         max_tokens=max_token,
         frequency_penalty=frequency_penalty,
