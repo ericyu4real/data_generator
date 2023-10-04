@@ -59,11 +59,15 @@ for i in range(len(answers)):
     print(f'Generating {num_questions} questions for answer #{i}...')
     example = generate_example(num_questions, answers[i], prev_examples, temperature=temperature, top_p=top_p, max_token=max_token, presence_penalty=presence_penalty, frequency_penalty=frequency_penalty)
     prev_examples.append(example)
-    data[answers[i]] = example.split('\n')
 
-# Open the file in write mode and write the dictionary as JSON
-with open('output', "w") as json_file:
-    json.dump(data, json_file)
+# Export the DataFrame to an Excel file
+data = {
+    "answer": answers,
+    "questions": prev_examples
+}
+df = pd.DataFrame(data)
+excel_file_name = "output.xlsx"
+df.to_excel(excel_file_name, index=False)
 
-print('questions moved to json file successfully')
+print('questions moved to excel file successfully')
 
