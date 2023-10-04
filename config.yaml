@@ -1,6 +1,6 @@
 api_key: "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"
-num_questions: 5
-temperature: 0
+num_questions: 1
+temperature: 0.3
 top_p: 0.7  
 max_token: 700 
 frequency_penalty: 0.6
