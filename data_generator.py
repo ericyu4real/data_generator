@@ -31,23 +31,23 @@ def generate_example(num_questions, answer, prev_examples, temperature=0, top_p=
     }
     ]
 
-    if len(prev_examples) > 0:
-        if len(prev_examples) > 10:
-            prev_examples = random.sample(prev_examples, 10)
-        for example in prev_examples:
-            messages.append({
-                "role": "assistant",
-                "content": example
-            })
+    # if len(prev_examples) > 0:
+    #     if len(prev_examples) > 10:
+    #         prev_examples = random.sample(prev_examples, 10)
+    #     for example in prev_examples:
+    #         messages.append({
+    #             "role": "assistant",
+    #             "content": example
+    #         })
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-16k",
         messages=messages,
-        temperature=temperature,
-        # top_p = top_p,
-        # max_tokens=max_token,
-        # frequency_penalty=frequency_penalty,
-        # presence_penalty=presence_penalty
+        temperature=temperature
+        top_p = top_p,
+        max_tokens=max_token,
+        frequency_penalty=frequency_penalty,
+        presence_penalty=presence_penalty
     )
 
     return response.choices[0].message['content']
